@@ -18,7 +18,7 @@ def chat():
 
     try:
         response = client.chat.completions.create(
-            model="llama-3.1-8b-instant",
+            model="openai/gpt-oss-120b",
             messages=[
                 {
 "role": "system",
@@ -69,8 +69,8 @@ Behavior Rules:
         return jsonify({"reply": f"Error: {str(e)}"})
 
 if __name__ == "__main__":
-    # Get the port assigned by Railway, default to 5000 for local testing
+    
     port = int(os.environ.get("PORT", 8080))
     
-    # Bind to 0.0.0.0 so Railway can route public traffic to it
+    
     app.run(host="0.0.0.0", port=port, debug=False)
